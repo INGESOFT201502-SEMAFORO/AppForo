@@ -10,6 +10,9 @@ public class Post {
     private Date lastUpdate;
     private boolean isAllowed;
     private ArrayList<File> attachments;
+    private String text;
+    private ArrayList<Integer> ratings;
+    private  int rated;
 
     public Post(String topic, Date dateCreated, Date lastUpdate, boolean isAllowed) {
         this.topic = topic;
@@ -17,6 +20,46 @@ public class Post {
         this.lastUpdate = lastUpdate;
         this.isAllowed = isAllowed;
         this.attachments = new ArrayList<File>();
+        this.ratings = new ArrayList<Integer>();
+        this.rated = 0;
+    }
+
+    public void  comment (Post post, String text){
+        post.comment(text);
+    }
+
+    private void comment(String text){
+        this.text = text;
+    }
+
+    public void rate(int rated){
+        ratings.add(rated);
+        int sum = 0;
+        for (int i = 0; i < this.ratings.size(); i++){
+            sum += ratings.get(i);
+        }
+        int avg = sum/ratings.size();
+        this.rated = avg;
+    }
+
+    public void share(){
+
+    }
+
+    public int getRated(int index){
+        return this.ratings.get(index);
+    }
+
+    public File getAttachFile(File file){
+        return this.attachments.get(this.attachments.indexOf(file));
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public int getRated() {
+        return rated;
     }
 
     public void attachFile(File attachment) {
