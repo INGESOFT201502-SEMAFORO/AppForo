@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -6,15 +7,15 @@ import java.util.Date;
  */
 public class Post {
     private String topic;
-    private Date dateCreated;
-    private Date lastUpdate;
+    private Calendar dateCreated;
+    private Calendar lastUpdate;
     private boolean isAllowed;
     private ArrayList<File> attachments;
     private String text;
     private ArrayList<Integer> ratings;
     private  int rated;
 
-    public Post(String topic, Date dateCreated, Date lastUpdate, boolean isAllowed) {
+    public Post(String topic, Calendar dateCreated, Calendar lastUpdate, boolean isAllowed) {
         this.topic = topic;
         this.dateCreated = dateCreated;
         this.lastUpdate = lastUpdate;
@@ -74,19 +75,19 @@ public class Post {
         this.topic = topic;
     }
 
-    public Date getDateCreated() {
+    public Calendar getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(Date dateCreated) {
+    public void setDateCreated(Calendar dateCreated) {
         this.dateCreated = dateCreated;
     }
 
-    public Date getLastUpdate() {
+    public Calendar getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Date lastUpdate) {
+    public void setLastUpdate(Calendar lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
